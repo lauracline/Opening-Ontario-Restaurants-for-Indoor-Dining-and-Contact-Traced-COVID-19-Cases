@@ -184,6 +184,21 @@ control_group <-
 control_group
 ```
 
+```{r include=FALSE}
+# Bind the treatment and control datasets 
+# Simulates that from our sampling from of 38,000 restaurants, 18,977 of them responded 
+
+simulated_dataset <- rbind(treatment_group, control_group)
+
+simulated_dataset
+```
+
+```{r include=FALSE}
+# Save and clean up
+
+write_csv(simulated_dataset, 'Data/simulated_dataset.csv')
+```
+
 # Results 
 
 # Discussion and Future Research 
