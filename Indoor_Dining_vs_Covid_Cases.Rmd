@@ -14,7 +14,23 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r include=FALSE}
+## Install packages and read libraries
+
+# install.packages("kableExtra")
+# install.packages("RColorBrewer")
+# install.packages("gridExtra")
+
+library(tidyverse)
+library(RColorBrewer)
+library(broom)
+library(gridExtra)
+library(grid)
+```
+
 # Introduction 
+
+The code and data supporting this analysis is avaliable on our [GitHub repository](https://github.com/lauracline/Opening-Ontario-Restaurants-for-Indoor-Dining-and-Contact-Traced-COVID-19-Cases) for this project: <https://github.com/lauracline/Opening-Ontario-Restaurants-for-Indoor-Dining-and-Contact-Traced-COVID-19-Cases>. 
 
 # Data Description 
 
@@ -28,6 +44,145 @@ Include the link to the survey.
 ## Data Ethics 
 
 ## Descriptive Data Analysis
+
+```{r include=FALSE}
+## BUILD SURVEY ##
+
+## Set Seed 
+set.seed(888)
+
+## Survey Questions 
+# Q1: In what year was your business first established?
+# Q2: Over the past year (March 2020 to present), how has each of the following changed for this business? (Sales)
+# Q3: Over the past year (March 2020 to present), how has each of the following changed for this business? (Number of Employees)
+# Q4: Over the past year (March 2020 to present), how has each of the following changed for this business? (Gross Revenue)
+# Q5: Over the past year (March 2020 to present), how has each of the following changed for this business? (Gross Expenses)
+# Q6: Over the past year (March 2020 to present), how has each of the following changed for this business? (Net Revenue)
+# Q7: Which of the following have been obstacles to your business? 
+# Q8: Due to COVID-19, was funding or credit for this business approved or received through any of the following sources? Pick the option where the majority of the business's funding is coming from. 
+# Q9: If you answered “None of the Above” for the question above, for which of the following reasons has the business not accessed any funding or credit due to COVID-19? 
+# Q10: Does the business have the ability to take on more debt?
+# Q11: How long can this business continue to operate at its current level of revenue and expenditure before having to consider permanent closure or bankruptcy?
+# Q12: Is 50% or more of our business owned by a by a BIPOC visible minority (BIPOC visible minority is Canada is defined as someone who is non-white in colour or race, regardless of place of birth)? 
+# Q13: If >= 50% of this business’s owners are BIPOC visible minorities, please select the categories that describe the owner or owners?
+# Q14: Is 50% or more of our business owned by a by immigrants to Canada? 
+# Q15: Does your business have access to platforms like UberEats, Doordash, or SkipTheDishes to complete delivery and takeout orders?
+# Q16: If you selected option a above, does your business use platforms like UberEats, Doordash, or SkipTheDishes to complete delivery and takeout orders?
+# Q17: If you selected option d above, why did you stop using these platforms?
+
+## Create a tibble and put in each survey question 
+
+sampling_frame_restaurant_population <- 
+  tibble(person = c(1:38000), #~38,000 restaurants in Ontario alone
+         Q1 = runif(n = 38000, min = 1900, max = 2021) %>% #The oldest restaurant in Ontario was established in 1789, but it skews up my dataset so most retaurants were established in the 1800s (older than the majority of restaurants in Canada), so I'm starting my years in 1900 to be safe 
+                                             round(digits = 0),
+         Q2 = sample(x = c("Increased", "Stayed the Same", "Decreased"),
+                     size = 38000,
+                     replace = TRUE,
+                     prob = c(0.15, 0.66, 0.19)),
+         Q3 = sample(x = c("Increased", "Stayed the Same", "Decreased"),
+                     size = 38000,
+                     replace = TRUE,
+                     prob = c(0.15, 0.66, 0.19)),
+         Q4 = sample(x = c("Increased", "Stayed the Same", "Decreased"),
+                     size = 38000,
+                     replace = TRUE,
+                     prob = c(0.15, 0.19, 0.66)),
+         Q5 = sample(x = c("Increased", "Stayed the Same", "Decreased"),
+                     size = 38000,
+                     replace = TRUE,
+                     prob = c(0.60, 0.20, 0.20)),
+         Q6 = sample(x = c("Increased", "Stayed the Same", "Decreased"),
+                     size = 38000,
+                     replace = TRUE,
+                     prob = c(0.15, 0.19, 0.66)),
+         Q7 = sample(x = c("Shortage of labour force", "Recruiting and training skilled employees", "Shortage of space and equipment", "Supply chain challenges", "Insufficent and/or fluctuating customer demand", "Cost of insurance", "Government regulations", "Rising cost of inputs", "Increasing competition", "Maintaining sufficient cash flow or managing debt", "Rent expenses", "High speed internet", "Cost of delivery and take out", "Other", "NA"),
+                      size = 38000,
+                      replace = TRUE,
+                      prob = c(0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.12, 0.06, 0.06, 0.10, 0.06, 0.06, 0.06, 0.06, 0.06)),
+         Q8 = sample(x = c("CEBA", "Temporary 10% Wage Subsidy", "CEWS", "CERS", "CECRA", "Regional Relief and Recovery Fund", "Provincial, Territorial or Municipal Government Programs", "Grant or Loan Funding from Philanthropic or Mutual-Aid Sources", "Financial Institution (Term Loan or Line-of-Credit", "Loan from Family or Friends", "Other", "None of the Above"),
+                     size = 38000,
+                     replace = TRUE,
+                     prob = c(0.09, 0.09, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.09, 0.09, 0.08, 0.08)),
+         Q9 = if_else(Q8 == "None of the Above",
+                             sample(x = c("Funding or credit not needed", "Waiting for approval or submitting application", "Did not meet eligibility requirements", "Unable to fill out application", "Lack of awareness", "Other"),
+                            size = 38000,
+                            replace = TRUE,
+                            prob = c(0.10, 0.25, 0.30, 0.15, 0.19, 0.01)),
+                            "NA"),
+         Q10 = sample(x = c("Yes", "No", "Don't Know"),
+                                          size = 38000,
+                                          replace = TRUE,
+                                          prob = c(0.34, 0.36, 0.30)),
+         Q11 = sample(x = c("Less than 1 month", "1 month to less than 3 months", "3 months to less than 6 months", "6 months to less than 12 months", "12 months or more", "Not considering permanent closure or bankrupcy", "Don't Know"),
+                      size = 38000,
+                      replace = TRUE,
+                      prob = c(0.25, 0.18, 0.15, 0.15, 0.25, 0.15, 0.10)),
+         Q12 = sample(x = c("Yes", "No"),
+                              size = 38000,
+                              replace = TRUE,
+                              prob = c(0.31, 0.69)),
+         Q13 = if_else(Q12 == "Yes",
+                       sample(x = c("South Asian", "Chinese", "Black", "Arab", "West Asian", "Southeast Asian", "Multiple Visible Minority", "Korean", "Latin American", "Japanese", "First Nations, Metis and/or Inuit"),
+                              size = 38000,
+                              replace = TRUE,
+                              prob = c(0.31, 0.21, 0.17, 0.06, 0.05, 0.04, 0.06, 0.03, 0.03, 0.02, 0.02)),
+                       "NA"),
+         Q14 = sample(x = c("Yes", "No"),
+                              size = 38000,
+                              replace = TRUE,
+                              prob = c(0.15, 0.85)),
+         Q15 = sample(x = c("Yes", "No"),
+                                              size = 38000,
+                                              replace  = TRUE,
+                                              prob = c(0.80, 0.20)),
+         Q16 = if_else(Q15 == "Yes",
+                       sample(x = c("Yes", "No", "No, but our business is considering it", "No, but our business used to use it"),
+                              size = 38000,
+                              replace = TRUE,
+                              prob = c(0.90, 0.01, 0.01, 0.08)),
+                       "NA"),
+         Q17 = if_else(Q16 == "No, but our business used to use it",
+                       sample(x = c("Commission fees too high", "Too many orders to fulfill on platforms", "Platform terms and conditions too strict", "I don't trust these platforms", "I don't understand how these platforms work", "Other"),
+                              size = 38000,
+                              replace = TRUE,
+                              prob = c(0.40, 0.01, 0.04, 0.20, 0.25, 0.01)),
+                       "NA"),
+  ) %>%
+  mutate(in_frame_sample = sample(x = c(0:1), # Randomize by assigning every restaurant a numbe rbetween 1 and 10 
+                           size = 38000,
+                           replace = TRUE)) %>%
+  mutate(group = sample(x = c(1:2), # assign each sample a number: either 1 or 2 
+                        size = 38000,
+                        replace = TRUE)) %>%
+  mutate(group = ifelse(in_frame_sample == 1, group, NA)) # our two groups will come from our in-frame samples 
+```
+
+```{r include=FALSE}
+## Create Treatment Group 
+
+treatment_group <- 
+sampling_frame_restaurant_population %>%
+  filter(group == 1) %>% # Filter by group 1 
+  mutate(contact_traced_covid_cases = rnorm(n = 9383, mean = 6, sd = 3) %>% # Add a new column for number of covid cases with 9383 values, mean of 6 and standard deviation of 3
+            round(digits = 0) %>% # Remove decimal values 
+            abs()) # Only want absolute values 
+
+treatment_group
+```
+
+```{r include=FALSE}
+## Create Control Group
+
+control_group <-
+  sampling_frame_restaurant_population %>%
+  filter(group == 2) %>% # Filter by group 2 
+  mutate(contact_traced_covid_cases = rnorm(n = 9594, mean = 3, sd = 2) %>% # Create a new column for number of covid cases for 9594 values, a mean of 3 and a standard deviation of 2 
+            round(digits = 0) %>% # Remove decimal places 
+            abs()) # Only show adbsolute values 
+
+control_group
+```
 
 # Results 
 
