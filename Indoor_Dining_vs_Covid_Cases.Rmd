@@ -562,8 +562,10 @@ simulated_dataset %>%
   scale_fill_brewer(palette = "Set1") # Use the Set1 palette 
 ```
 
-# Discussion and Future Research 
+# Discussion and Future Research
 
+
+![The Moral of the Story](Stats_figures/Screen Shot 2021-02-18 at 8.03.11 PM.png)
 # Appendix
 
 # Bibliography
