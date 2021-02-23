@@ -42,7 +42,8 @@ Include the link to the survey.
 
 ## Intervention 
 
-## Data Gathering Methodology 
+## Population, Frame, and Sample
+The population in question for this survey is all restaurants in Ontario, and our sampling frame are Ontario restaurants registered under the Canadian Business Registries. From this, our final survey sample will be Ontario restaurant owners who respond to an electronic questionnaire sent via. email. As an incentive, we will inform survey candidates that their responses will help shape policies being put in place by the Ontario Provincial government geared towards relieving the economic impact restaurants face during the COVID-19 pandemic. 
 
 ## Data Ethics 
 
