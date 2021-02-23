@@ -52,6 +52,8 @@ As a means of mitigating bias in our survey, our sampling methodology is somewha
 
 In this sampling method, each member of the population has an exactly equal chance of being selected for the survey. This is the optimal sampling method for this survey because it involves a single random selection and requires little knowledge in advance about the demographics of the population. This method also has high internal validity because it reduces the impact of potential confounding variables. With a large enough sample size, a simple random sample also has high external validity because it will represent all the characteristics of the larger population. The sampling design we utilized comes from Wu and Thompson [@citeWu] and will assume population values are fixed, which they will be at the time the sample is drawn from the Canadian Business Registries. It is also assumed that our SRSWOR satisfies the following probability measure:
 
+![Where P(**S**) is the sampling method, N/n is the total size of survey candidates of population N](Stats_figures/probability_measure.png)
+
 ## Data Ethics 
 
 ## Descriptive Data Analysis
