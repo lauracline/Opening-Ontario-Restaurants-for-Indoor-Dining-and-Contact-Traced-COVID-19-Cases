@@ -30,7 +30,10 @@ library(grid)
 
 # Introduction 
 
-The code and data supporting this analysis is avaliable on our [GitHub repository](https://github.com/lauracline/Opening-Ontario-Restaurants-for-Indoor-Dining-and-Contact-Traced-COVID-19-Cases) for this project: <https://github.com/lauracline/Opening-Ontario-Restaurants-for-Indoor-Dining-and-Contact-Traced-COVID-19-Cases>. 
+In this paper, we will use a Randomized Controlled Trial (RCT) to analyze the relationship between opening some Ontario restaurants for indoor dining (treatment group) and the remaining restaurants will remain shuttered to indoor dining. The Centre for Disease Control (CDC) defines indoor dining 
+The code and data supporting this analysis is available on our [GitHub repository](https://github.com/lauracline/Opening-Ontario-Restaurants-for-Indoor-Dining-and-Contact-Traced-COVID-19-Cases) for this project: <https://github.com/lauracline/Opening-Ontario-Restaurants-for-Indoor-Dining-and-Contact-Traced-COVID-19-Cases>. 
+
+The remainder of this paper is structured as follows: Section 2 discusses the data, intervention, data gathering methodology, data ethics, descriptive data analysis, and determines if the treatment and control groups are representative samples. Section 3 performs linear regression and logistic regression to test our hypothesis. Finally, Section 4 discusses the study's findings and some weaknesses. 
 
 # Data Description 
 
@@ -566,6 +569,7 @@ simulated_dataset %>%
 
 
 ![The Moral of the Story](Stats_figures/Screen Shot 2021-02-18 at 8.03.11 PM.png)
+
 # Appendix
 
 # Bibliography
