@@ -58,6 +58,12 @@ As previously noted, given a large enough sample size, estimators such as the sa
 
 ![where *i* is units sampled and **S** is the sample](Stats_figures/sample_mean_std.png)
 
+Given the above statistical expressions that define the sample mean and probability measure, estimating our population mean through SRSWOR can be achieved as follows when yhat(**S**) and P(**S**) are expanded into their whole expressions and subsequently manipulated in the following proof from Wu and Thompson:
+
+![Proof the sample mean is a sufficient estimator of the population mean](Stats_figures/SRSWOR_proof.png)
+
+
+
 ## Data Ethics 
 
 ## Descriptive Data Analysis
