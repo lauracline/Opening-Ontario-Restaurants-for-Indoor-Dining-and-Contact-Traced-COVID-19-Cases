@@ -68,6 +68,10 @@ While not necessarily a second stage, since we are relying on data gathering tec
 
 ## Data Ethics 
 
+In addition to potential biases this data may be subject to, the ethical considerations of our sample data must also be considered carefully as we are dealing with information about a struggling Ontario business community as well as asking questions geared specifically towards racialized groups in Canada. Because of this, our sample data has a unique set of considerations that lie at the intersection of data privacy, equity, and access. First, and in all cases, to protect the individual privacy of respondents, all surveys are anonymous and neither business nor owner names are recorded. In addition, location data will not be collected with enough specificity to identify survey respondents. 
+
+In terms of handling the ethical concerns related to our survey data, danah boyd, Solon Barocas, Kate Crawford, and number of other scholars provide guidance in their article "10 Simple Rules for Responsible Big Data Research" [@citeBoyd]. The 10 rules can be understood as follows:
+
 ## Descriptive Data Analysis
 
 ```{r include=FALSE}
