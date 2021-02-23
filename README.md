@@ -1,4 +1,4 @@
-# COVID19-and-BIPOC-Restaurant-Owners
+# Bon Appétit: Ontario Restaurants that Opened for Indoor Dining had Significantly More COVID-19 Cases Traced Back to their Business Compared to Restaurants who Remained Take-Out/Delivery Only in March 2021
 
 **Authors**: Laura Cline, Lee Doucet, & Will Trefiak 
 
