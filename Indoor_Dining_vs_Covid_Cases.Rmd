@@ -1,5 +1,5 @@
 ---
-title: "Indoor_Dining_vs_Covid_Cases"
+title: "Bon Appétit: Ontario Restaurants that Opened for Indoor Dining had Significantly More COVID-19 Cases Traced Back to their Business Compared to Restaurants who Remained Take-Out/Delivery Only in March 2021"
 author: "Laura Cline, Lee Doucet, & Will Trefiak"
 email: laura.cline@mail.utoronto.ca
 date: "19/02/2021"
