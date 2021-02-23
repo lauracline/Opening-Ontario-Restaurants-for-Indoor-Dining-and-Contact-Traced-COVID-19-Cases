@@ -68,6 +68,29 @@ While not necessarily a second stage, since we are relying on data gathering tec
 
 ## Data Ethics 
 
+In addition to potential biases this data may be subject to, the ethical considerations of our sample data must also be considered carefully as we are dealing with information about a struggling Ontario business community as well as asking questions geared specifically towards racialized groups in Canada. Because of this, our sample data has a unique set of considerations that lie at the intersection of data privacy, equity, and access. First, and in all cases, to protect the individual privacy of respondents, all surveys are anonymous and neither business nor owner names are recorded. In addition, location data will not be collected with enough specificity to identify survey respondents. 
+
+In terms of handling the ethical concerns related to our survey data, danah boyd, Solon Barocas, Kate Crawford, and number of other scholars provide guidance in their article "10 Simple Rules for Responsible Big Data Research" [@citeBoyd]. The 10 rules can be understood as follows:
+
+1. Acknowledge that data are people and can do harm
+2. Recognize that privacy is more than a binary value
+3. Guard against the reidentification of your data
+4. Practice ethical data sharing
+5. Consider the strengths and limitations of your data; big does not automatically mean better
+6. Debate the tough, ethical choices
+7. Develop a code of conduct for your organization, research community, or industry
+8. Design your data and systems for auditability
+9. Engage with the broader consequences of data and analysis practices
+10. Know when to break these rules
+
+In essence, our sampling strategy, as well as the approach we take in this entire survey design, reflects these 10 rules robustly. First, privacy will be protected through ensuring the survey questions are not designed to collect personally identifiable information, and that no questions regarding location have too much specificity. For example, our survey will gather data on the municipality or region of the restaurant as well as whether the restaurant is rural or urban - but will not be recording addresses or postal codes. Data for this survey will be collected via. Google Forms, a commonly used and secure survey platform that allows researchers to collect survey data electronically with ease. 
+
+In terms of ethically sharing our data, the entirety of this survey design will be made publicly available via. Github repository as a means of ensuring our work is reproducible as well as methodologically robust. Utilizing a version control tool such as Github also has the advantage of giving our work (read, the associated systems and data) for increased audibility and transparency, a crucial component of any ethical data work. 
+
+In terms of the "tough ethical choices" our team debated while designing this survey, there are two I would like to discuss. For a large majority of this survey design, we were unsure how to proceed with classifying racialized groups in Canada, and wavered back and forth on using the term BIPOC (black, indigenous person of colour) in the survey itself. While one of our initial objectives was to understand the impact COVID restrictions had on BIPOC restaurants, we ran into the issue of the term BIPOC being not readily defined [@citeCtv]. This was also compounded with the fact that the term BIPOC may be unfamiliar some some of our survey respondents, and why we opted to use language of "racialized" groups instead. This certainly will have an impact on the data our survey will be collecting as the inclusion of other racialized groups in our treatment group means the scope is no longer contained to BIPOC businesses. Regardless, our original intent of exploring the impact of COVID restrictions from a perspective of equity and advocacy for racialized groups in Canada, who in countless other contexts have been affected by the pandemic the most [@citeGlobe].
+
+The second "tough ethical choice" our team had to make surrounded whether we would try to capture or account for businesses not operating with a business license. While the notorious Adamson BBQ was the first of these types of businesses to come to our minds, upon more discussion we realized there may be a significant chunk of businesses currently operating without licenses in Ontario that may be doing so due issues of systemic inequality and lack of access to business resources. While we discussed that this would most certainly be data that is crucial to collect on an often overlooked population, the fact that our sampling frame is restaurants registered in the Ontario Business Registry means we limited our capacity to study this population from the outset. Having said that we understand our inferences can only be made about a (registered) subset of Ontario's entire restaurant population, which also includes ones that are unregistered. 
+
 ## Descriptive Data Analysis
 
 ```{r include=FALSE}
@@ -228,7 +251,7 @@ write_csv(simulated_dataset, 'Data/simulated_dataset.csv')
 
 Although we cannot know our entire population of our data frame, we can predict that our sampling frame is ~38,000 restaurants because they is the number of registered restaurants in Ontario. Using the information from the Canadian Business Registries and our survey model we can explore the demographics and characteristics of our overall population. 
 
-The first graph (Figure \@ref(fig:fig1)) demonstrates that the majority of Ontario restaurant owners. The graph was built using R [@citeR], tidyverse [@citetidyverse], and ggplot2 [@citeggplot2]. 
+The first graph (Figure \@ref(fig:fig1)) demonstrates that the majority of Ontario restaurant owners are not BIPOC visible minorities. The graph was built using R [@citeR], tidyverse [@citetidyverse], and ggplot2 [@citeggplot2]. 
 
 ```{r fig1, echo=FALSE, fig.cap="Is 50% or more of your business owned by a BIPOC visible minority? (March 2021)"}
 # Create a bar graph for the number of restaurants whose owners are BIPOC
