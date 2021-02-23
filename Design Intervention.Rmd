@@ -1,0 +1,71 @@
+---
+title: "Paper 2 - Design Intervention"
+author: "Lee Doucet"
+date: "16/02/2021"
+output: pdf_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Intervention Design 
+
+	The Ontario Provincial government is undertaking an initiative to reopen 
+select restaurants for in-person dining to determine the relationship between 
+in-person dining and the spread of Covid-19 in the community. As Ontario has 
+moved through the peak of the second wave and total daily case counts of 
+Covid-19 are on the decline, Ontario Health believes this is a reasonably safe 
+opportunity to conduct an intervention that tests the impact of reopening
+in-person dining on future Covid-19 cases in the community. The intervention 
+will take place as a Random Control Trial (RCT) that divides all restaurants 
+in Ontario into two groups by a simple random sample without replacement 
+(SRSWOR).
+
+	Health officials will conduct this intervention for two-weeks from March 1st 
+until March 15th. Once this time period has elapsed, all in-person dining will
+be closed across the province while health officials monitor for any instances 
+of community spread of Covid-19 where restaurants were open for in-person dining 
+for two-weeks. This time frame was chosen as it is consistent with the current
+medical knowledge of anywhere from 5 to 14 days from the initial date of 
+infection to the onset of symptoms of Covid-19 to appear in individuals who are 
+not asymptomatic. Data from this intervention will inform both Ontario Health 
+and Public Health Ontario on next courses of action and whether to expand the 
+intervention or not.
+
+```{r}
+```
+
+## Reason for Random Control Trials  
+ 
+	The intervention will use the RCT method as it is the most appropriate in the
+context of the experiment. All restaurants in Ontario will divided into two 
+groups. One group will be the treatment group which will be allowed to reopen 
+their in-person dining and the other group will be a control group which will 
+have no change and their in-person dining will remain closed. It’s imperative 
+that no bias be present when selecting who is eligible for treatment as there 
+are financial benefits to the restaurants that are sorted into the treatment 
+group. The RCT will give each restaurant the same probability of being chosen 
+randomly to be selected for the treatment or being placed in the control group. 
+This methodology is both statistically fair while providing a transparent and 
+simple enough process that the general public can understand the reasoning 
+behind why only certain restaurants are being allowed to open for in-person 
+dining.The usefulness of RCT’s have made them the “gold standard of impact 
+evaluation” (Gertler et al, 64). 
+
+	An important element to a robust RCT is having a large number of units to 
+ensure the treatment group and control group are statically identical. This 
+does not mean that each group needs to be prefect clones of each other 
+(Alexander, Hunt Data), as this would make statistical analysis impossible in 
+this case as restaurants are not identical. They vary in size, location, and 
+serve different types of communities. There are also characteristics that are 
+more challenging to observe such as personal motivations and willingness to 
+follow proper protocols with Covid-19 compliance. What is important is the 
+average of those properties are distributed as equal as possible between the 
+treatment and control groups. The larger the size of the groups that were 
+randomly sorted, the higher probability this will be the case. This is a benefit
+of selecting an RCT for the intervention, with the population being all legal 
+restaurants in Ontario, there is a sufficient high probability of both groups 
+being statically identical.
+
+
