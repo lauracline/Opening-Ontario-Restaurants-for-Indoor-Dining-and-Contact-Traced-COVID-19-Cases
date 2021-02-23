@@ -62,7 +62,9 @@ Given the above statistical expressions that define the sample mean and probabil
 
 ![Proof the sample mean is a sufficient estimator of the population mean](Stats_figures/SRSWOR_proof.png)
 
+For our purposes, this proof gives us sufficient reason to believe the simple random sampling method we want to use is in fact random and will tell us information that is relevant to the population itself. 
 
+While not necessarily a second stage, since we are relying on data gathering techniques that require voluntary response to survey sent via. email, it is still important to note the biases such a selection process can bring with it. In a word, while a simple random sample was introduced to reduce bias, self reporting may reintroduce it to a lesser degree. This could be potentially compounded by the offered incentive, which may provide a larger pool of businesses that have been adversely impacted by the COVID-19 pandemic than those who have not. While this is a minor consideration given the emphasis placed on conducting a SRSWOR is a sufficient size in our initial sampling phase, it is still worth noting as a possible bias in the data.
 
 ## Data Ethics 
 
