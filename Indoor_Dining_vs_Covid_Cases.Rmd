@@ -101,8 +101,6 @@ In terms of the "tough ethical choices" our team debated while designing this su
 
 The second "tough ethical choice" our team had to make surrounded whether we would try to capture or account for businesses not operating with a business license. While the notorious Adamson BBQ was the first of these types of businesses to come to our minds, upon more discussion we realized there may be a significant chunk of businesses currently operating without licenses in Ontario that may be doing so due issues of systemic inequality and lack of access to business resources. While we discussed that this would most certainly be data that is crucial to collect on an often overlooked population, the fact that our sampling frame is restaurants registered in the Ontario Business Registry means we limited our capacity to study this population from the outset. Having said that we understand our inferences can only be made about a (registered) subset of Ontario's entire restaurant population, which also includes ones that are unregistered. 
 
-=======
->>>>>>> 48a568109b45dd9b19ba8e4e96fc284c587fb074
 ## Descriptive Data Analysis
 
 ```{r include=FALSE}
@@ -624,10 +622,53 @@ simulated_dataset %>%
 
 # Discussion and Future Research
 
+# Appendix: Survey Details 
+
+![Consent](survey_screencaps/consent.png)
+
+![Question 1](survey_screencaps/q_1.png)
+
+![Question 2](survey_screencaps/q_2.png)
+
+![Question 3](survey_screencaps/q_3.png)
+
+![Question 4](survey_screencaps/q_4.png)
+
+![Question 5](survey_screencaps/q_5.png)
+
+![Question 6](survey_screencaps/q_6.png)
+
+![Question 7](survey_screencaps/q_7.png)
+
+![Question 8](survey_screencaps/q_8.png)
+
+![Question 9](survey_screencaps/q_9.png)
+
+![Question 10](survey_screencaps/q_10.png)
+
+![Question 11](survey_screencaps/q_11.png)
+
+![Question 12](survey_screencaps/q_12.png)
+
+![Question 13](survey_screencaps/q_13.png)
+
+![Question 14](survey_screencaps/q_14.png)
+
+![Question 15](survey_screencaps/q_15.png)
+
+![Question 16](survey_screencaps/q_16.png)
+
+![Question 17](survey_screencaps/q_17.png)
+
+![Question 18](survey_screencaps/q_18.png)
+
+![Question 19](survey_screencaps/q_19.png)
+
+![Terms](survey_screencaps/terms.png)
+
+![Confirm](survey_screencaps/confirm.png)
 
 ![The Moral of the Story](Stats_figures/Screen Shot 2021-02-18 at 8.03.11 PM.png)
-
-# Appendix
 
 # Bibliography
 
