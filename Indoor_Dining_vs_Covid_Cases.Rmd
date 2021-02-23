@@ -43,7 +43,12 @@ Include the link to the survey.
 ## Intervention 
 
 ## Population, Frame, and Sample
-The population in question for this survey is all restaurants in Ontario, and our sampling frame are Ontario restaurants registered under the Canadian Business Registries. From this, our final survey sample will be Ontario restaurant owners who respond to an electronic questionnaire sent via. email. As an incentive, we will inform survey candidates that their responses will help shape policies being put in place by the Ontario Provincial government geared towards relieving the economic impact restaurants face during the COVID-19 pandemic. 
+
+The population in question for this survey is all restaurants in Ontario, and our sampling frame are Ontario restaurants registered under the Canadian Business Registries. From this, our final survey sample will be Ontario restaurant owners who respond to an electronic questionnaire sent via. email. As an incentive, we will inform survey candidates that their responses will help shape policies being put in place by the Ontario Provincial government geared towards relieving the economic impact restaurants face during the COVID-19 pandemic.
+
+## Sampling Strategy 
+
+As a means of mitigating bias in our survey, our sampling methodology is somewhat twofold, with the first sample attempting to mitigate the biases introduced in the 'second.' Furthermore, we cannot use cluster or stratified sampling because we are unable to determine whether a restaurant belongs to a particular strata or cluster because this data is not available in Canada's Business Registries. Instead, we are using a *simple random sample without replacement* (SRSWOR) whereby the sample is randomly selected from a subset of the population. Practically, this means each sample observation is individually selected with an equal probability of being drawn. The practical sampling procedure utilized to draw a sample from our population comes from the tidyverse package in the r statistical programming language. 
 
 ## Data Ethics 
 
