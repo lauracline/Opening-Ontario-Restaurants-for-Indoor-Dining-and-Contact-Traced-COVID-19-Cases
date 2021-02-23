@@ -37,13 +37,21 @@ The code and data supporting this analysis is available on our [GitHub repositor
 
 The remainder of this paper is structured as follows: Section 2 discusses the data, intervention, data gathering methodology, data ethics, descriptive data analysis, and determines if the treatment and control groups are representative samples. Section 3 performs linear regression and logistic regression to test our hypothesis. Finally, Section 4 discusses the study's findings and some weaknesses.
 
-
 # Data Description 
 
 ## The "Name of Our Survey" Dataset 
-Include the link to the survey. 
+
+The link to our survey to measure the the affect of our intervention between our treatment and control groups are: <https://docs.google.com/forms/d/e/1FAIpQLSdRF-dAem7l3eBsrYyCuOSextEwQusLNHs4r5JR9H-E3Tn4FA/viewform>. 
 
 ## Intervention 
+
+### Intervention Design 
+
+The Ontario Provincial government plans to reopen restaurants for in-person dining as soon as it is feasible to do so while ensuring the data supports the reopening will not put communities at risk of spreading Covid-19. As total daily case counts are declining after the peak of the second wave, Ontario Health believes this is a good opportunity for an intervention to test the impact of reopening in-person dining in select restaurants in Ontario. To implement this intervention, a Random Control Trial (RCT) has been selected to allow certain restaurants to open their in-person dining. Health officials will conduct this intervention for two-weeks and then close all in-person dining again while monitoring the daily case counts for an additional two weeks to determine the impact on community spread of Covid-19. This time frame was chosen as it is consistent with the current known medical knowledge of 5 to 14 days for the duration of symptoms of Covid-19 to appear in individuals. Based on the data from the intervention, Ontario Health will evaluate the extent, if any, that the opening of in-person dining lead to an increase of Covid-19 community spread. If there is limited cause for concern, Ontario Health will recommend to the Ontario Provincial government that they can re-open all restaurants or in-person dining.  
+
+### RCT Selection Process
+
+Through the implementation of an RCT, all legal restaurants in Ontario will be randomly divided into two groups with the same probability of being chosen. Restaurants selected for the treatment group will be allowed to reopen their in-person dining while those in the control group will have their in-person dining remain closed. The control group is the counterfactual, what they represent in this case what happens to community spread of Covid-19 when certain restaurants are not opened for in-person dining. This methodology is both statistically fair while providing a transparent and simple enough process that the general public can understand why that only certain restaurants are being allowed to open for in-person dining. The ease of sorting group members by random chance with the same probability of selection reduces the opportunity for bias, both known and unknown, with group selection by researchers. The usefulness of RCT’s have made them the “gold standard of impact evaluation” [@citeGertler].  
 
 ## Population, Frame, and Sample
 
