@@ -230,8 +230,12 @@ sampling_frame_restaurant_population <-
                               replace = TRUE,
                               prob = c(0.40, 0.01, 0.04, 0.20, 0.25, 0.01)),
                        "NA"),
+         Q18 = sample(x= c("Yes", "No", "Very Limited (Under 5 Tables"),
+                      size = 38000,
+                      replace = TRUE,
+                      prob = c(0.99, 0.005, 0.005))
   ) %>%
-  mutate(in_frame_sample = sample(x = c(0:1), # Randomize by assigning every restaurant a numbe rbetween 1 and 10 
+  mutate(in_frame_sample = sample(x = c(0:1), # Randomize by assigning every restaurant a number between 1 and 10 
                            size = 38000,
                            replace = TRUE)) %>%
   mutate(group = sample(x = c(1:2), # assign each sample a number: either 1 or 2 
@@ -246,7 +250,7 @@ sampling_frame_restaurant_population <-
 treatment_group <- 
 sampling_frame_restaurant_population %>%
   filter(group == 1) %>% # Filter by group 1 
-  mutate(contact_traced_covid_cases = rnorm(n = 9383, mean = 6, sd = 3) %>% # Add a new column for number of covid cases with 9383 values, mean of 6 and standard deviation of 3
+  mutate(contact_traced_covid_cases = rnorm(n = 9630, mean = 6, sd = 3) %>% # Add a new column for number of covid cases with 9383 values, mean of 6 and standard deviation of 3
             round(digits = 0) %>% # Remove decimal values 
             abs()) # Only want absolute values 
 
@@ -259,7 +263,7 @@ treatment_group
 control_group <-
   sampling_frame_restaurant_population %>%
   filter(group == 2) %>% # Filter by group 2 
-  mutate(contact_traced_covid_cases = rnorm(n = 9594, mean = 3, sd = 2) %>% # Create a new column for number of covid cases for 9594 values, a mean of 3 and a standard deviation of 2 
+  mutate(contact_traced_covid_cases = rnorm(n = 9515, mean = 3, sd = 2) %>% # Create a new column for number of covid cases for 9594 values, a mean of 3 and a standard deviation of 2 
             round(digits = 0) %>% # Remove decimal places 
             abs()) # Only show adbsolute values 
 
@@ -281,9 +285,42 @@ simulated_dataset
 write_csv(simulated_dataset, 'Data/simulated_dataset.csv')
 ```
 
-### Only ~30% of Ontario Restaurts are Owned by Non-White Visible Minorities 
+### 38,000 Restaurants in our Sampling Frame
 
-Although we cannot know our entire population of our data frame, we can predict that our sampling frame is ~38,000 restaurants because they is the number of registered restaurants in Ontario. Using the information from the Canadian Business Registries and our survey model we can explore the demographics and characteristics of our overall population. 
+Although we cannot know our entire population of our data frame, we can predict that our sampling frame is ~38,000 restaurants because they is the number of registered restaurants in Ontario. Table 1 counts the number of restaurants in our population (Table \@ref(tab:kitten)). Using the information from the Canadian Business Registries and our survey model we can explore the demographics and characteristics of our overall population. 
+
+The table was created using R [@citeR], tidyverse [@citetidyverse], and kableExtra [@citekableExtra]. 
+
+```{r kitten, echo=FALSE}
+restaurant_population_table <- 
+  sampling_frame_restaurant_population %>%
+  count() %>% # Count number of restaurant owners 
+  rename("Number of Ontario Restaurant Owners" = n) #Rename column so more human readable 
+
+restaurant_population_table %>% #Create a table 
+  knitr::kable(caption = "Total Number of Restaurant Owners in Ontario (March 2021)") %>%
+  kableExtra::kable_styling() #Cleaner table
+```
+
+### Over 99% of Ontario Restaurants Have Indoor Dining Space in their Locations 
+
+Table 2 shows that ~99% of restaurants can have indoor dining at their current location (Table \@ref(tab:fish)). Consequently, out intervention can be used on the vast majority of our respondents and we can filter out the survey respondents who did not have indoor dining capacity. 
+
+The table was created using R [@citeR], tidyverse [@citetidyverse], and kableExtra [@citekableExtra]. 
+
+```{r fish, echo=FALSE}
+indoor_dining_table <- 
+  sampling_frame_restaurant_population %>%
+  group_by(Q18) %>%
+  count(sort = TRUE) %>%
+  rename("Answer" = Q18, "Number of Restaurants" = n)
+
+indoor_dining_table %>% #Create a table 
+  knitr::kable(caption = "Does Your Business Have the Option for Indoor Dining at Your Current Location? (March 2021)") %>%
+  kableExtra::kable_styling() #Cleaner table
+```
+
+### Only ~30% of Ontario Restaurts are Owned by Non-White Visible Minorities 
 
 The first graph (Figure \@ref(fig:fig1)) demonstrates that the majority of Ontario restaurant owners are not BIPOC visible minorities. The graph was built using R [@citeR], tidyverse [@citetidyverse], and ggplot2 [@citeggplot2]. 
 
@@ -646,7 +683,7 @@ simulated_dataset %>%
 
 # Discussion and Future Research
 
-In this paper, we explored the relationship between opening a restaurant for indoor dining and the number of COVID-19 cases traced back to that business within the 18,977 restaurant owners that participated in our Randomized Controlled Experiment and responded to our survey in March 2021. First, we discovered that restaurants that open for indoor dining are statistically more likely to have more contact-traced COVID-19 cases compared to restaurants that remained closed. Although these results could be explained by the population density of where our restaurants were located, our simple random sampling method controlled for this confounding variable. Instead, the increase in COVID-19 cases is likely due to customers having to take off their masks when they eat their food which releases the virus into the air. Also, the customers are in a closed environment and the restaurant may have poor ventilation which both contribute to disease transmission. Secondly, the results illustrated that 50% or more of a restaurant being owned by a BIPOC does not contribute to an increase in COVID-19 cases being traced back to a restaurant. This result was likely due to Uncle Eddie's test hypothesis being a racist assumption and there is no evidence from external literature that ethnicity causes COVID-19 transmission. Lastly, we uncovered that the vast majority Ontario restaurant owners are considering permanent closure or bankruptcy in the next year if their current revenues and expenses continue. Consequently, the Ontario government must find alternative solutions other than opening restaurants for indoor dining to financially support these businesses. The results show that the economic gain of opening restaurants is ethnically not worth of the public health risk. 
+In this paper, we explored the relationship between opening a restaurant for indoor dining and the number of COVID-19 cases traced back to that business within the 18,977 restaurant owners that participated in our Randomized Controlled Experiment and responded to our survey in March 2021. First, we discovered that restaurants that open for indoor dining are statistically more likely to have more contact-traced COVID-19 cases compared to restaurants that remained closed. Although these results could be explained by the population density of where our restaurants were located, our simple random sampling method controlled for this confounding variable. Instead, the increase in COVID-19 cases is likely due to customers having to take off their masks when they eat their food which releases the virus into the air. Also, the customers are in a closed environment and the restaurant may have poor ventilation which both contribute to disease transmission. Secondly, the results illustrated that 50% or more of a restaurant being owned by a BIPOC visible minority does not contribute to an increase in COVID-19 cases being traced back to a restaurant. This result was likely due to Uncle Eddie's test hypothesis being a racist assumption and there is no evidence from external literature that ethnicity causes COVID-19 transmission. Lastly, we uncovered that the vast majority Ontario restaurant owners are considering permanent closure or bankruptcy in the next year if their current revenues and expenses continue. Consequently, the Ontario government must find alternative solutions other than opening restaurants for indoor dining to financially support these businesses. The results show that the economic gain of opening restaurants is ethnically not worth of the public health risk. 
 
 # Appendix: Survey Details 
 
