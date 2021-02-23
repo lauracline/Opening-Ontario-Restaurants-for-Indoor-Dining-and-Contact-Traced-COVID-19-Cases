@@ -72,15 +72,25 @@ In addition to potential biases this data may be subject to, the ethical conside
 
 In terms of handling the ethical concerns related to our survey data, danah boyd, Solon Barocas, Kate Crawford, and number of other scholars provide guidance in their article "10 Simple Rules for Responsible Big Data Research" [@citeBoyd]. The 10 rules can be understood as follows:
 
+
 1. Acknowledge that data are people and can do harm
+
 2. Recognize that privacy is more than a binary value
+
 3. Guard against the reidentification of your data
+
 4. Practice ethical data sharing
+
 5. Consider the strengths and limitations of your data; big does not automatically mean better
+
 6. Debate the tough, ethical choices
+
 7. Develop a code of conduct for your organization, research community, or industry
+
 8. Design your data and systems for auditability
+
 9. Engage with the broader consequences of data and analysis practices
+
 10. Know when to break these rules
 
 In essence, our sampling strategy, as well as the approach we take in this entire survey design, reflects these 10 rules robustly. First, privacy will be protected through ensuring the survey questions are not designed to collect personally identifiable information, and that no questions regarding location have too much specificity. For example, our survey will gather data on the municipality or region of the restaurant as well as whether the restaurant is rural or urban - but will not be recording addresses or postal codes. Data for this survey will be collected via. Google Forms, a commonly used and secure survey platform that allows researchers to collect survey data electronically with ease. 
@@ -91,6 +101,8 @@ In terms of the "tough ethical choices" our team debated while designing this su
 
 The second "tough ethical choice" our team had to make surrounded whether we would try to capture or account for businesses not operating with a business license. While the notorious Adamson BBQ was the first of these types of businesses to come to our minds, upon more discussion we realized there may be a significant chunk of businesses currently operating without licenses in Ontario that may be doing so due issues of systemic inequality and lack of access to business resources. While we discussed that this would most certainly be data that is crucial to collect on an often overlooked population, the fact that our sampling frame is restaurants registered in the Ontario Business Registry means we limited our capacity to study this population from the outset. Having said that we understand our inferences can only be made about a (registered) subset of Ontario's entire restaurant population, which also includes ones that are unregistered. 
 
+=======
+>>>>>>> 48a568109b45dd9b19ba8e4e96fc284c587fb074
 ## Descriptive Data Analysis
 
 ```{r include=FALSE}
