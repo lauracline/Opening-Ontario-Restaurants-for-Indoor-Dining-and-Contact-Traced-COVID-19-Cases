@@ -230,7 +230,7 @@ sampling_frame_restaurant_population <-
                               replace = TRUE,
                               prob = c(0.40, 0.01, 0.04, 0.20, 0.25, 0.01)),
                        "NA"),
-         Q18 = sample(x= c("Yes", "No", "Very Limited (Under 5 Tables"),
+         Q18 = sample(x= c("Yes", "No", "Very Limited (Under 5 Tables)"),
                       size = 38000,
                       replace = TRUE,
                       prob = c(0.99, 0.005, 0.005))
@@ -555,7 +555,7 @@ Where $\bar{X}_{j}$, $s_{j}$, and $N_{j}$ are the same mean mean, sample standar
 
 Another reason we are using the t-test is because it gives us the p-value which is a "statistical summary of the compatibility between the observed data and what we would predict or expect to see if we knew the entire statistical model (all the assumptions used to compute the p-value) were correct" [@citeGreenland]. 
 
-If we set the alpha level for a statistically significant p-value at 0.05, the p-value (0.47) in the t-test (Table \@ref(tab:ttest)) suggests that the data is not unusual if all the assumptions used to compute the p-value (including the test hypothesis) were correct. A p-value of 0.47 means the discrepancy between the hypothesis prediction would be larger or as large as the observed more than 47% of the time if only chance was creating the discrepancy. However, even if the test hypothesis is wrong, the p-value may be large because it was inflated by a large random error or due to other erroneous assumptions. All in all, the t-test implies that the treatment and control group have high internal validity [@citeGreenland]. 
+If we set the alpha level for a statistically significant p-value at 0.01, the p-value (0.04) in the t-test (Table \@ref(tab:ttest)) suggests that the data is not unusual if all the assumptions used to compute the p-value (including the test hypothesis) were correct. A p-value of 0.04 means the discrepancy between the hypothesis prediction would be larger or as large as the observed more than 4% of the time if only chance was creating the discrepancy. However, even if the test hypothesis is wrong, the p-value may be large because it was inflated by a large random error or due to other erroneous assumptions. All in all, the t-test implies that the treatment and control group have high internal validity [@citeGreenland]. 
 
 ```{r ttest, echo=FALSE}
 # Run a t-test to show that the treatment and control group are not statistically signifciant meaning the data is distributed and they are good representatives of the population 
@@ -681,6 +681,28 @@ simulated_dataset %>%
   scale_fill_brewer(palette = "Set1") # Use the Set1 palette 
 ```
 
+The table (Table \@ref(tab:goldy)) below further demonstrates the large difference in contact-traced COVID-19 cases between our treatment and control group. The average number of cases for restaurants that opened for indoor dining is double the number restaurants that did not receive the intervention. Therefore, the disease is less transmissible when restaurants remain shuttered to indoor dining. 
+
+The table was created using R [@citeR], tidyverse [@citetidyverse], and kableExtra [@citekableExtra]. 
+
+```{r goldy, echo=FALSE}
+covid_cases_table <- 
+  simulated_dataset %>%
+  group_by(group) %>%
+  summarise(number_of_cases = sum(contact_traced_covid_cases),
+            number_of_restaurants = n(),
+            average_number_of_cases_per_restaurant = number_of_cases/number_of_restaurants
+            ) %>%
+  rename("Number of COVID-19 Cases" = number_of_cases,
+         "Number of Restaurants" = number_of_restaurants,
+         "Average Number of COVID-19 Cases per Restaurant" = average_number_of_cases_per_restaurant)
+
+
+covid_cases_table %>% #Create a table 
+  knitr::kable(caption = "Total and Average Number of COVID-19 Cases Traced back to the Treatment Group (1) versus the Control Group (2)") %>%
+  kableExtra::kable_styling() #Cleaner table
+```
+
 # Discussion and Future Research
 
 In this paper, we explored the relationship between opening a restaurant for indoor dining and the number of COVID-19 cases traced back to that business within the 18,977 restaurant owners that participated in our Randomized Controlled Experiment and responded to our survey in March 2021. First, we discovered that restaurants that open for indoor dining are statistically more likely to have more contact-traced COVID-19 cases compared to restaurants that remained closed. Although these results could be explained by the population density of where our restaurants were located, our simple random sampling method controlled for this confounding variable. Instead, the increase in COVID-19 cases is likely due to customers having to take off their masks when they eat their food which releases the virus into the air. Also, the customers are in a closed environment and the restaurant may have poor ventilation which both contribute to disease transmission. Secondly, the results illustrated that 50% or more of a restaurant being owned by a BIPOC visible minority does not contribute to an increase in COVID-19 cases being traced back to a restaurant. This result was likely due to Uncle Eddie's test hypothesis being a racist assumption and there is no evidence from external literature that ethnicity causes COVID-19 transmission. Lastly, we uncovered that the vast majority Ontario restaurant owners are considering permanent closure or bankruptcy in the next year if their current revenues and expenses continue. Consequently, the Ontario government must find alternative solutions other than opening restaurants for indoor dining to financially support these businesses. The results show that the economic gain of opening restaurants is ethnically not worth of the public health risk. 
@@ -734,6 +756,12 @@ In this paper, we explored the relationship between opening a restaurant for ind
 ![Terms](survey_screencaps/terms.png)
 
 ![The Moral of the Story](Stats_figures/Screen Shot 2021-02-18 at 8.03.11 PM.png)
+
+
+
+
+
+
 
 # Bibliography
 
