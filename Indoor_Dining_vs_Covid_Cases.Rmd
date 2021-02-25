@@ -705,9 +705,32 @@ covid_cases_table %>% #Create a table
 
 # Discussion and Future Research
 
+Our intervention on Ontario restaurants examined allowing them to re-open for in-person dining over a duration of two-weeks. Asking the question that would lead to increased occurrences of Covid-19 community spread that could be traced back to the restaurants that participated in our intervention. Using simulated data to explore this scenario, the results forecasted that community spread 
+would occur from restaurants if the province allowed them to open in-person dining. Our recommendation to not have in-person dining open yet is unfortunate for the restaurant industry as they are struggling with financial stability on account of their increased debt and inability to generate sufficient revenue as they are among the most impacted industries during the pandemic [@citeImpact)]. Restaurant Canada, a non-profit organization working with restaurants across the country, is petitioning all levels of government for help. Referencing a  survey of 1,000 Canadian restaurants they conducted showing the level of desperation that the industry faces as one out of every two independent 
+restaurants could close permanently depending on what happens over the course of the next few months [@citeBloom]. Restaurants are going to be struggling for
+revenue if not already as they adapt to post pandemic life. As hope for a quick re-opening diminishes, the burden of responsibility must shift to the government
+to provide adequate assistance until life resumes to what could be understood as normal. 
+
+In the broader research context, our intervention corroborates what has been observed by other researchers. Amesh Adalja of John Hopkins Center for Health 
+Security has stated that the current trends in how Covid-19 is spreading is consistent with what health officials predicated from the beginning, that 
+certain activities leading to more spread than others [@citeStats] Restaurants, especially those that are full-service, fall into this category as one of the 
+largest predicted impacts of infection, “due to the large number of restaurantsas well as their visit densities and long dwell times”  [@citeStats]. The nature
+of how Covid-19 is spreading means that opening full-service restaurants would be considered high-risk risk for increased spread of Covid-19 and that for it 
+to be considered safe that there would have to be a reduction in the maximum occupancy with other health precautions put in place [@citeNature]. As we are not 
+even a year into the Pandemic, further research would be useful trying to calculate a safe occupancy that allows restaurants to survive economically. A recommendation would be an A/B test for the maximum safe allowable patrons in a restaurant with rigorous  safety precautions put in place to limit the chance of spread. 
+
+While research is being conducted to determine safe occupancy in restaurants, not enough is being done financially to help them weather the pandemic. In 
+Portugal, the Portuguese Restaurants and Hotel Owners Association has stated that 70% of the industry will not be able to pay salaries without timely 
+government support [@citePand]. The National Association of Restaurants in Brazil conducted a survey where over 50% of restaurants are experiencing revenue drops
+between 50% to 90% and that they are in financial trouble [@citeBrazil]. Globally with data used from OpenTable, an online restaurant reservation company, shows that after the World Health Organization declared the Covid-19 pandemic on March 11,2020 that business dropped between 10% and 20% immediately for them and then by March 18th, 2020 that business had declined by 90% and has
+been very slow to recover [@citeGlobal].  Where in-person dining is not allowed, to generate revenue, restaurants have tried expanding to delivery options. Although this model may work for some restaurants, others cannot cover their costs or market conditions may be against them as the popularity of fine-dining $35-dollar pasta plates may not be attractive to consumers. For those that are 
+allowed to open, often at reduced capacity, they must take on addition expenses with contactless payment, menu boards and sanitization while offering discounts 
+as an incentive to attend [@citeGlobal]. As restaurants do whatever they can to survive, governments must consider their role in ensuring their survival and 
+value both directly and indirectly to the economy as they may determine their fate through funding and grants.
+
 In this paper, we explored the relationship between opening a restaurant for indoor dining and the number of COVID-19 cases traced back to that business within the 18,977 restaurant owners that participated in our Randomized Controlled Experiment and responded to our survey in March 2021. First, we discovered that restaurants that open for indoor dining are statistically more likely to have more contact-traced COVID-19 cases compared to restaurants that remained closed. Although these results could be explained by the population density of where our restaurants were located, our simple random sampling method controlled for this confounding variable. Instead, the increase in COVID-19 cases is likely due to customers having to take off their masks when they eat their food which releases the virus into the air. Also, the customers are in a closed environment and the restaurant may have poor ventilation which both contribute to disease transmission. Secondly, the results illustrated that 50% or more of a restaurant being owned by a BIPOC visible minority does not contribute to an increase in COVID-19 cases being traced back to a restaurant. This result was likely due to Uncle Eddie's test hypothesis being a racist assumption and there is no evidence from external literature that ethnicity causes COVID-19 transmission. Lastly, we uncovered that the vast majority Ontario restaurant owners are considering permanent closure or bankruptcy in the next year if their current revenues and expenses continue. Consequently, the Ontario government must find alternative solutions other than opening restaurants for indoor dining to financially support these businesses. The results show that the economic gain of opening restaurants is ethnically not worth of the public health risk. 
 
-There are a few limitations to our survey and proceeding experiment worth discussing, all of which circulate around a long standing tension between sample anonymity and sample accuracy. This tension is probably best laid out in work done but Lisa Austin and David Lie (2019), which speaks more directly to the balancing act that comes with making sure your data is both accurate and private. Speaking in terms of anonymization and de-anonymization, Austin and Lie engage with methods such as k-anonymity and differential privacy, measuring their respective strengths and limitations. Very briefly, k-anonymity is a process where specific data features are omitted from a sample (or for Austin and Lie, a dataset) to ensure no re-identification of respondents is possible (Austin and Lie, 2019, p. 592). Differential privacy is slightly more sophisticated as it requires the development of a model that measures significant “privacy loss” (Austin and Lie, 2019, p. 583) in a sample and accounts for this metric in the proceeding statistical analysis. 
+There are a few limitations to our survey and proceeding experiment worth discussing, all of which circulate around a long standing tension between sample anonymity and sample accuracy. This tension is probably best laid out in work done but Lisa Austin and David Lie (2019), which speaks more directly to the balancing act that comes with making sure your data is both accurate and private. Speaking in terms of anonymization and de-anonymization, Austin and Lie engage with methods such as k-anonymity and differential privacy, measuring their respective strengths and limitations. Very briefly, k-anonymity is a process where specific data features are omitted from a sample (or for Austin and Lie, a dataset) to ensure no re-identification of respondents is possible [@citeAustin, p.592]. Differential privacy is slightly more sophisticated as it requires the development of a model that measures significant “privacy loss” [@citeAustin, p.583] in a sample and accounts for this metric in the proceeding statistical analysis. 
 
 In a broad sense, we approached our sampling strategy and survey design from a perspective of ‘proto k-anonymity,’ where the survey itself was developed with protection against data re-identification as a top priority. As a result, the survey data collected not only omits certain features, but excludes them entirely. This mitigates virtually any possibility of this at-risk data falling into the wrong hands and avoids risks of re-identification from the outset. While keeping at-risk data out of a sample is the safest way to ensure re-identification, it also has the limitation of reducing data quality compared to the k-anonymity and differential privacy methods. With this being said, however, our team firmly stands by the sampling strategy and privacy-first survey design employed, as the liabilities associated with data re-identification are far more costly than producing sample data of a marginally lower quality. 
 
@@ -764,6 +787,19 @@ When considering the implications of our intervention, however, there are a numb
 ![Terms](survey_screencaps/terms.png)
 
 ![The Moral of the Story](Stats_figures/Screen Shot 2021-02-18 at 8.03.11 PM.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
